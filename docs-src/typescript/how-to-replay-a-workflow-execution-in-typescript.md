@@ -14,6 +14,7 @@ or [worker.runReplayHistory](https://typescript.temporal.io/api/classes/worker.W
 to replay multiple or one Workflow Histories.
 
 In the following example, histories are downloaded from the server, and then replayed:
+
 ```ts
 const histories = # TODO: Use list workflows API once it's ready
 await Worker.runReplayHistories(
@@ -27,13 +28,13 @@ await Worker.runReplayHistories(
 In the next example, a single history is loaded from a JSON file on disk:
 
 ```ts
-const filePath = './history_file.json'
+const filePath = './history_file.json';
 const hist = await JSON.parse(fs.promises.readFile(filePath, 'utf8'));
 await Worker.runReplayHistory(
   {
     workflowsPath: require.resolve('./your/workflows'),
   },
-  hist
+  hist,
 );
 ```
 
